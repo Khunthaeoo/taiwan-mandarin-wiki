@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>臺灣華語入門：發音、問候與自我介紹</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17243a;
+      --muted: #4a5a70;
+      --paper: #f3f6fb;
+      --surface: #fff;
+      --line: #cfdae8;
+      --accent: #155e75;
+      --accent-dark: #0c4255;
+      --accent-soft: #dff3f5;
+      --warm: #8a4b10;
+      --warm-soft: #fff1d9;
+      --good: #185b39;
+      --good-soft: #e4f5ea;
+      --bad: #8f2828;
+      --bad-soft: #fff0ef;
+      --shadow: 0 16px 42px rgb(23 36 58 / 9%);
+      font-family: system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei",
+        "Noto Sans Myanmar", "Myanmar Text", "Padauk", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%, rgb(21 94 117 / 9%), transparent 28rem),
+        var(--paper);
+      line-height: 1.65;
+    }
+
+    button, select, input { font: inherit; }
+
+    button, select {
+      color: var(--ink);
+    }
+
+    button {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: .65rem 1rem;
+      background: var(--surface);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    button:hover:not(:disabled) {
+      border-color: var(--accent);
+      background: #f2fbfc;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: .48;
+    }
+
+    :focus-visible {
+      outline: 3px solid #ee9f2d;
+      outline-offset: 3px;
+    }
+
+    .app {
+      width: min(1120px, 100%);
+      min-height: 100svh;
+      margin-inline: auto;
+      padding: 1rem clamp(.8rem, 3vw, 1.5rem) 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 4;
+      top: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: .75rem 1rem;
+      align-items: center;
+      padding: .65rem .8rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgb(255 255 255 / 96%);
+      box-shadow: 0 5px 18px rgb(23 36 58 / 6%);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: .79rem;
+      font-weight: 600;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .progress-row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(4rem, 1fr) auto;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    progress {
+      width: 100%;
+      height: .55rem;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background: #e1e8f1;
+      accent-color: var(--accent);
+    }
+
+    progress::-webkit-progress-bar { background: #e1e8f1; }
+    progress::-webkit-progress-value { background: var(--accent); }
+    progress::-moz-progress-bar { background: var(--accent); }
+
+    .slide-count {
+      min-width: 5.3rem;
+      color: var(--muted);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+    }
+
+    main { flex: 1; }
+
+    .slide {
+      min-height: 68svh;
+      padding: clamp(1.1rem, 3vw, 2rem);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .slide[hidden] { display: none; }
+
+    .slide-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: start;
+      justify-content: space-between;
+      gap: .7rem 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2 {
+      margin-bottom: .35rem;
+      line-height: 1.25;
+      letter-spacing: .01em;
+    }
+
+    h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); }
+    h2 { font-size: clamp(1.45rem, 3.6vw, 2.15rem); }
+    h3 { margin-bottom: .45rem; font-size: 1.12rem; }
+
+    p { margin-bottom: .75rem; }
+
+    .eyebrow {
+      margin-bottom: .35rem;
+      color: var(--accent-dark);
+      font-size: .85rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      max-width: 52rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+    }
+
+    .lede {
+      max-width: 65ch;
+      font-size: 1.12rem;
+    }
+
+    .bilingual {
+      margin-top: .5rem;
+      color: #233750;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .en {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .burmese {
+      font-family: "Noto Sans Myanmar", "Myanmar Text", "Padauk",
+        system-ui, sans-serif;
+      line-height: 1.85;
+    }
+
+    .grid-2, .grid-3, .tone-grid, .self-grid, .source-grid {
+      display: grid;
+      gap: .9rem;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .tone-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .self-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .source-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card, .speech, .tone-card, .word-card, .source-card {
+      min-width: 0;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: #fff;
+    }
+
+    .card.soft { background: #f7fafc; }
+    .card.accent { border-color: #9dcbd2; background: var(--accent-soft); }
+    .card.warm { border-color: #f0cb8c; background: var(--warm-soft); }
+
+    .large-zh {
+      margin: .15rem 0 .4rem;
+      font-size: clamp(1.65rem, 5vw, 2.7rem);
+      font-weight: 850;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .pinyin {
+      color: #153f63;
+      font-size: 1.15rem;
+      font-weight: 750;
+      letter-spacing: .025em;
+      overflow-wrap: anywhere;
+    }
+
+    .zhuyin {
+      color: #4b3b76;
+      font-size: 1.13rem;
+      font-weight: 750;
+      letter-spacing: .04em;
+      overflow-wrap: anywhere;
+    }
+
+    .reading-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem .85rem;
+      margin-top: .4rem;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      min-height: 1.8rem;
+      margin: 0 .3rem .35rem 0;
+      padding: .18rem .62rem;
+      border: 1px solid #aebdd0;
+      border-radius: 999px;
+      background: #f4f7fb;
+      color: #263a54;
+      font-size: .78rem;
+      font-weight: 850;
+    }
+
+    .label.source { border-color: #81b9a1; background: var(--good-soft); color: #104c30; }
+    .label.original { border-color: #e2bc73; background: var(--warm-soft); color: #663a08; }
+    .label.optional { border-color: #b7a7d7; background: #f0ecfa; color: #453471; }
+
+    .citation {
+      margin-top: 1rem;
+      padding-top: .7rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.55;
+    }
+
+    .callout {
+      padding: 1rem 1.15rem;
+      border-left: 5px solid var(--accent);
+      border-radius: 12px;
+      background: #f0f8fa;
+    }
+
+    .callout.warning {
+      border-left-color: var(--warm);
+      background: #fff8ec;
+    }
+
+    .tone-card {
+      text-align: center;
+      background: #f8fafc;
+    }
+
+    .tone-card .pitch {
+      display: block;
+      margin: .35rem 0;
+      color: var(--accent-dark);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .tone-name { font-weight: 800; }
+    .small { color: var(--muted); font-size: .88rem; }
+    .no-margin { margin: 0; }
+
+    .speech {
+      position: relative;
+      max-width: 52rem;
+      margin: .65rem 0;
+      border-radius: 18px 18px 18px 5px;
+      background: #f5fafc;
+    }
+
+    .speech.right {
+      margin-left: auto;
+      border-radius: 18px 18px 5px 18px;
+      background: #f6f3fc;
+    }
+
+    .speaker {
+      margin-bottom: .25rem;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .speech .large-zh { font-size: clamp(1.35rem, 4vw, 2rem); }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .button-primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .button-primary:hover:not(:disabled) {
+      background: var(--accent-dark);
+      color: #fff;
+    }
+
+    .button-quiet {
+      background: transparent;
+    }
+
+    .feedback {
+      min-height: 1.6em;
+      margin: .55rem 0 0;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .feedback.good { color: var(--good); }
+    .feedback.bad { color: var(--bad); }
+
+    .exercise-list, .check-list, .source-list {
+      padding-left: 1.25rem;
+    }
+
+    .exercise-list li, .check-list li, .source-list li {
+      margin: .45rem 0;
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: .8rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    legend { padding-inline: .35rem; font-weight: 800; }
+
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      margin: .45rem 0;
+      padding: .4rem;
+      border-radius: 8px;
+    }
+
+    .choice:hover { background: #f2f6fa; }
+    .choice input { margin-top: .45rem; accent-color: var(--accent); }
+
+    select {
+      min-height: 44px;
+      max-width: 100%;
+      margin: .2rem;
+      padding: .45rem .7rem;
+      border: 1px solid #8798ac;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .fill-sentence {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .25rem;
+      margin: .5rem 0;
+      line-height: 2.1;
+    }
+
+    .fill-sentence select { min-width: 8rem; }
+
+    .source-card {
+      padding: .8rem;
+      background: #f8fafc;
+      font-size: .9rem;
+    }
+
+    .source-card strong { display: block; margin-bottom: .25rem; }
+
+    details {
+      margin-top: .65rem;
+      padding: .65rem .8rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfcfe;
+    }
+
+    summary { cursor: pointer; font-weight: 800; }
+
+    .bottom-nav {
+      position: sticky;
+      z-index: 3;
+      bottom: .45rem;
+      display: flex;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .6rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgb(255 255 255 / 97%);
+      box-shadow: 0 6px 20px rgb(23 36 58 / 8%);
+    }
+
+    .nav-hint {
+      align-self: center;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    dialog {
+      width: min(560px, calc(100% - 1.5rem));
+      max-height: min(82svh, 720px);
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--ink);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    dialog::backdrop { background: rgb(13 27 44 / 58%); }
+
+    .overview-head {
+      display: flex;
+      justify-content: space-between;
+      gap: .6rem;
+      align-items: center;
+    }
+
+    .overview-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .5rem;
+      margin-top: .7rem;
+    }
+
+    .overview-list button {
+      display: flex;
+      gap: .55rem;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .overview-list button[aria-current="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 720px) {
+      .app { padding: .65rem .65rem 1rem; gap: .7rem; }
+      .topbar { padding: .55rem; }
+      .brand { font-size: .95rem; }
+      .brand small { font-size: .72rem; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tone-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tone-card:last-child { grid-column: 1 / -1; }
+      .slide { min-height: 70svh; padding: 1rem; border-radius: 18px; }
+      .bottom-nav button { flex: 1; }
+      .nav-hint { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .grid-2, .grid-3, .self-grid, .source-grid { grid-template-columns: 1fr; }
+      .overview-list { grid-template-columns: 1fr; }
+      .top-actions button { min-height: 42px; padding: .5rem .65rem; }
+      .slide-count { min-width: 4.5rem; font-size: .86rem; }
+      .large-zh { font-size: 1.7rem; }
+      .source-grid { gap: .55rem; }
+      .speech { padding: .8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        臺灣華語入門
+        <small>發音、問候與自我介紹 · Taiwan Mandarin Basics</small>
+      </div>
+      <div class="top-actions">
+        <button id="overviewButton" type="button" aria-haspopup="dialog" aria-controls="overviewDialog">投影片總覽</button>
+      </div>
+      <div class="progress-row">
+        <progress id="progressBar" max="14" value="1" aria-label="投影片進度"></progress>
+        <span id="slideCount" class="slide-count" aria-live="polite">01 / 14</span>
+      </div>
+    </header>
+
+    <main id="slideDeck" aria-label="臺灣華語教學投影片">
+      <section class="slide" id="slide-1" aria-labelledby="title-1" data-title="標題與課程範圍">
+        <p class="eyebrow">A1 · Pronunciation + Vocabulary</p>
+        <div class="slide-head">
+          <div>
+            <h1 id="title-1" tabindex="-1">臺灣華語入門</h1>
+            <p class="subtitle">發音、問候與自我介紹<br><span class="en">Taiwan Mandarin Basics: Pronunciation, Greetings, and Self-Introduction</span></p>
+          </div>
+          <span class="label">14 張投影片</span>
+        </div>
+        <div class="callout">
+          <p><strong>課程範圍：</strong>只整理兩份 Wiki 試教課的發音例子、問候、自我介紹、練習與小測驗。</p>
+          <p class="burmese no-margin">သင်ခန်းစာနှစ်ခုထဲက အသံထွက်ဥပမာ၊ နှုတ်ဆက်စကား၊ ကိုယ့်ကိုယ်ကို မိတ်ဆက်ခြင်း၊ လေ့ကျင့်ခန်းနဲ့ မေးခွန်းတိုတွေကိုပဲ စုစည်းထားပါတယ်။</p>
+        </div>
+        <div class="card warm" style="margin-top:1rem">
+          <strong>Wiki A1 是內部編排層級</strong>
+          <p class="burmese no-margin">Wiki ရဲ့ A1 ဟာ အတွင်းပိုင်းအကြောင်းအရာစီစဉ်တဲ့ အဆင့်ပါ။ CEFR၊ TOCFL သို့မဟုတ် TBCL အဆင့်နဲ့ တူညီတယ်လို့ မဆိုလိုပါ။</p>
+        </div>
+        <div class="toolbar">
+          <button class="button-primary" type="button" data-goto="1">開始學習 →</button>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-2" aria-labelledby="title-2" data-title="學習目標">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">今天的目標</p>
+            <h2 id="title-2" tabindex="-1">學習目標</h2>
+          </div>
+          <span class="label">先看目標，再開始練習</span>
+        </div>
+        <div class="grid-3">
+          <article class="card accent">
+            <h3>發音與聲調</h3>
+            <p>說明注音和拼音是不同的標音方式，並認出四聲和輕聲的基本標記。</p>
+            <p class="burmese no-margin">注音 နဲ့ 拼音 မတူတာကို ရှင်းပြပြီး အသံလေးသံနဲ့ ပေါ့သံရဲ့ အမှတ်အသားကို မှတ်မိပါ။</p>
+            <p class="citation">來源課程：A1 – Pronunciation: Taiwan Mandarin Basics</p>
+          </article>
+          <article class="card">
+            <h3>例子與變調</h3>
+            <p>用注音或拼音讀本課短例子，並說明「你好」和「不客氣」的變調提示。</p>
+            <p class="burmese no-margin">注音 ဒါမှမဟုတ် 拼音 နဲ့ ဥပမာတိုတွေကို ဖတ်ပြီး「你好」နဲ့「不客氣」မှာ အသံပြောင်းပုံကို ရှင်းပြပါ။</p>
+            <p class="citation">來源課程：兩份 A1 試教課</p>
+          </article>
+          <article class="card">
+            <h3>問候與自我介紹</h3>
+            <p>使用問候、道謝、道別語，詢問姓名並用「我姓……，叫……」介紹自己。</p>
+            <p class="burmese no-margin">နှုတ်ဆက်၊ ကျေးဇူးတင်၊ ပြန်နှုတ်ဆက်စကားတွေကို သုံးပြီး နာမည်မေးကာ「我姓……，叫……」နဲ့ မိတ်ဆက်ပါ။</p>
+            <p class="citation">來源課程：A1 詞彙：問候與自我介紹</p>
+          </article>
+        </div>
+        <div class="callout" style="margin-top:1rem">
+          <p class="no-margin"><strong>練習重點：</strong>讀本課短例子、注意聲調，並練習本課的名字問答。</p>
+          <p class="burmese no-margin">သင်ခန်းစာထဲက ဥပမာတိုတွေကို ဖတ်ပြီး အသံအနိမ့်အမြင့်ကို သတိထားကာ နာမည်မေးဖြေ လေ့ကျင့်ပါ။</p>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-3" aria-labelledby="title-3" data-title="注音和拼音">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">發音 · 01</p>
+            <h2 id="title-3" tabindex="-1">兩種標音方式</h2>
+          </div>
+          <span class="label source">來源支持的說明</span>
+        </div>
+        <p class="lede">注音和漢語拼音都可以標示華語讀音，但使用的符號不同。</p>
+        <div class="grid-2">
+          <article class="card accent">
+            <h3>注音符號</h3>
+            <p class="large-zh">ㄇㄚ</p>
+            <p class="burmese no-margin">注音 က အသံသင်္ကေတတွေကို သုံးပါတယ်။</p>
+          </article>
+          <article class="card">
+            <h3>漢語拼音</h3>
+            <p class="large-zh">ma</p>
+            <p class="burmese no-margin">拼音 က လက်တင်အက္ခရာနဲ့ အသံအမှတ်အသားတွေကို သုံးပါတယ်။</p>
+          </article>
+        </div>
+        <div class="callout" style="margin-top:1rem">
+          <p class="no-margin">這是兩種不同的標音方式；本投影片不把一種說成另一種的官方等級。</p>
+          <p>例字 <code>ma</code>／<span class="zhuyin">ㄇㄚ</span> 是本課的標音示例。</p>
+          <p class="burmese no-margin"><code>ma</code>／<span class="zhuyin">ㄇㄚ</span> က ဒီသင်ခန်းစာမှာ ထည့်ထားတဲ့ အသံရေးပုံဥပမာပါ။</p>
+        </div>
+        <p class="citation">來源：ACCC-16，印刷頁 4–7；ACCC-01，印刷頁 X–XII、XIX–XX；ACCC-17，CH2–CH5（均見 Pronunciation 課程）。</p>
+      </section>
+
+      <section class="slide" id="slide-4" aria-labelledby="title-4" data-title="四聲和輕聲">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">發音 · 02</p>
+            <h2 id="title-4" tabindex="-1">四聲和輕聲</h2>
+          </div>
+          <span class="label original">本課原創練習音節</span>
+        </div>
+        <p>以下 <code>ma</code> 是發音練習，不是五個詞語。</p>
+        <div class="tone-grid" aria-label="ma 聲調練習">
+          <article class="tone-card"><span class="tone-name">第一聲</span><span class="pitch">mā</span><span>高而平</span><div class="zhuyin">ㄇㄚ</div><div class="burmese small">မြင့်တန်း</div></article>
+          <article class="tone-card"><span class="tone-name">第二聲</span><span class="pitch">má</span><span>上升</span><div class="zhuyin">ㄇㄚˊ</div><div class="burmese small">မြင့်တက်</div></article>
+          <article class="tone-card"><span class="tone-name">第三聲</span><span class="pitch">mǎ</span><span>先降後升</span><div class="zhuyin">ㄇㄚˇ</div><div class="burmese small">အရင်ကျ၊ ပြန်တက်</div></article>
+          <article class="tone-card"><span class="tone-name">第四聲</span><span class="pitch">mà</span><span>下降</span><div class="zhuyin">ㄇㄚˋ</div><div class="burmese small">ကျဆင်း</div></article>
+          <article class="tone-card"><span class="tone-name">輕聲</span><span class="pitch">ma</span><span>較輕、較短</span><div class="zhuyin">˙ㄇㄚ</div><div class="burmese small">ပိုပေါ့၊ ပိုတို</div></article>
+        </div>
+        <div class="callout" style="margin-top:1rem">
+          <p class="no-margin">依序讀出 <strong>mā、má、mǎ、mà、ma</strong>，每次只改變聲調。</p>
+          <p class="burmese no-margin">အစဉ်လိုက်ဖတ်ပါ။ တစ်ခါဖတ်တိုင်း အသံအနိမ့်အမြင့်ကိုသာ ပြောင်းပါ။</p>
+        </div>
+        <p class="citation">來源：ACCC-16，印刷頁 7；ACCC-01，印刷頁 X–XII、XIX–XX。符號標記參考 ACCC-16。</p>
+      </section>
+
+      <section class="slide" id="slide-5" aria-labelledby="title-5" data-title="閱讀課程例子">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">發音 · 03</p>
+            <h2 id="title-5" tabindex="-1">讀一讀課程例子</h2>
+          </div>
+          <span class="label source">來源支持：詞句</span>
+        </div>
+        <div class="grid-2">
+          <article class="word-card">
+            <span class="label original">本課原創：讀音標示</span>
+            <p class="large-zh">牛肉麵</p>
+            <div class="reading-line"><span class="pinyin">niú ròu miàn</span><span class="zhuyin">ㄋㄧㄡˊ ㄖㄡˋ ㄇㄧㄢˋ</span></div>
+            <p class="burmese">အမဲသားခေါက်ဆွဲ</p>
+            <p class="small no-margin">空格用來看清音節，不代表拼音的詞語分隔方式。</p>
+          </article>
+          <article class="word-card">
+            <span class="label original">本課原創：讀音標示</span>
+            <p class="large-zh">歡迎你們來臺灣。</p>
+            <div class="reading-line"><span class="pinyin">huānyíng nǐmen lái Táiwān</span></div>
+            <p class="zhuyin">ㄏㄨㄢ ㄧㄥˊ ㄋㄧˇ ˙ㄇㄣ ㄌㄞˊ ㄊㄞˊ ㄨㄢ</p>
+            <p class="burmese no-margin">သင်တို့ ထိုင်ဝမ်ကို လာရောက်ကြတာကို ကြိုဆိုပါတယ်။</p>
+          </article>
+        </div>
+        <p class="citation">來源支持的詞句：ACCC-01，印刷頁 85「牛肉麵」、印刷頁 2「歡迎你們來臺灣。」；拼音和注音標示由 Pronunciation 課程編寫。</p>
+      </section>
+
+      <section class="slide" id="slide-6" aria-labelledby="title-6" data-title="發音短對話">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">發音 · 04</p>
+            <h2 id="title-6" tabindex="-1">短對話：慢讀，再用自然速度讀</h2>
+          </div>
+          <span class="label original">本課編排的練習對話</span>
+        </div>
+        <div class="speech">
+          <div class="speaker">A</div>
+          <p class="large-zh">歡迎你們來臺灣。</p>
+          <div class="reading-line"><span class="pinyin">huānyíng nǐmen lái Táiwān</span></div>
+          <p class="zhuyin">ㄏㄨㄢ ㄧㄥˊ ㄋㄧˇ ˙ㄇㄣ ㄌㄞˊ ㄊㄞˊ ㄨㄢ</p>
+          <p class="burmese no-margin">သင်တို့ ထိုင်ဝမ်ကို လာရောက်ကြတာကို ကြိုဆိုပါတယ်။</p>
+        </div>
+        <div class="speech right">
+          <div class="speaker">B</div>
+          <p class="large-zh">謝謝！</p>
+          <div class="reading-line"><span class="pinyin">xièxie</span><span class="zhuyin">ㄒㄧㄝˋ ˙ㄒㄧㄝ</span></div>
+          <p class="burmese no-margin">ကျေးဇူးတင်ပါတယ်။</p>
+        </div>
+        <div class="callout warning">
+          <strong>來源性質：</strong>由課程中的短句組成，不是原書中的完整對話。
+          <p>拼音與注音由 Pronunciation 課程補充。</p>
+          <p class="burmese no-margin">သင်ခန်းစာထဲက စကားစုတွေကို ပြန်စီထားတာပါ။ မူရင်းစာအုပ်ထဲက စကားပြောတစ်ခုလုံး မဟုတ်ပါ။ 拼音 နဲ့ 注音 ကို အသံထွက်သင်ခန်းစာက ထပ်ဖြည့်ထားပါတယ်။</p>
+        </div>
+        <p class="citation">ACCC-01，印刷頁 2；ACCC-14，PDF 第 3–7 頁（「謝謝」）。</p>
+      </section>
+
+      <section class="slide" id="slide-7" aria-labelledby="title-7" data-title="問候和道別">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">詞彙 · 01</p>
+            <h2 id="title-7" tabindex="-1">問候和道別</h2>
+          </div>
+          <span class="label source">來源支持的表達</span>
+        </div>
+        <div class="grid-2">
+          <article class="word-card accent">
+            <p class="large-zh">你好</p>
+            <div class="reading-line"><span class="pinyin">nǐ hǎo</span><span class="zhuyin">ㄋㄧˇ ㄏㄠˇ</span></div>
+            <p><strong>Hello; hi</strong></p>
+            <p class="burmese">မင်္ဂလာပါ။</p>
+            <p class="small">一般問候語。注音為本課編者轉寫。</p>
+            <p class="small burmese no-margin">ပုံမှန်နှုတ်ဆက်စကားပါ။ 注音 ကို ဒီသင်ခန်းစာရေးသူက ဖြည့်ထားပါတယ်။</p>
+          </article>
+          <article class="word-card">
+            <p class="large-zh">再見</p>
+            <div class="reading-line"><span class="pinyin">zàijiàn</span><span class="zhuyin">ㄗㄞˋ ㄐㄧㄢˋ</span></div>
+            <p><strong>Goodbye; see you</strong></p>
+            <p class="burmese">ပြန်တွေ့မယ်နော်။</p>
+            <p class="small">結束談話或道別；拼音與注音為本課編者轉寫，所引教材頁面不指定它為 Wiki A1。</p>
+            <p class="small burmese no-margin">စကားအဆုံးသတ် ဒါမှမဟုတ် ပြန်နှုတ်ဆက်တဲ့အခါ သုံးပါတယ်။ 拼音 နဲ့ 注音 ကို ဒီသင်ခန်းစာရေးသူက ဖြည့်ထားပြီး Wiki A1 လို့ သတ်မှတ်ထားတာ မဟုတ်ပါ။</p>
+          </article>
+        </div>
+        <div class="callout" style="margin-top:1rem">
+          <strong>讀音提示：</strong>「你好」拼音寫作 <b>nǐ hǎo</b>；連續說話時，前一個第三聲常聽起來接近 <b>ní hǎo</b>。拼音仍寫作 <b>nǐ hǎo</b>。
+          <p class="burmese no-margin">ရေးတဲ့ 拼音 က <b>nǐ hǎo</b> ပါ။ စကားဆက်ပြောတဲ့အခါ ရှေ့ကတတိယသံဟာ ဒုတိယသံလို ကြားရနိုင်ပေမယ့် 拼音 ကို မပြောင်းရေးပါ။</p>
+        </div>
+        <p class="citation">你好：ACCC-01，印刷頁 2、4；ACCC-21，PDF 第 1 頁。再見：ACCC-01，印刷頁 132。聲調提示：ACCC-01，印刷頁 X–XII、XIX–XX。</p>
+      </section>
+
+      <section class="slide" id="slide-8" aria-labelledby="title-8" data-title="道謝和回應">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">詞彙 · 02</p>
+            <h2 id="title-8" tabindex="-1">道謝和回應</h2>
+          </div>
+          <span class="label source">來源支持的表達</span>
+        </div>
+        <div class="grid-2">
+          <article class="word-card">
+            <p class="large-zh">謝謝</p>
+            <div class="reading-line"><span class="pinyin">xièxie</span><span class="zhuyin">ㄒㄧㄝˋ ˙ㄒㄧㄝ</span></div>
+            <p><strong>Thank you</strong></p>
+            <p class="burmese no-margin">ကျေးဇူးတင်ပါတယ်။</p>
+            <p class="small">用來表達感謝；注音為本課編者轉寫。</p>
+          </article>
+          <article class="word-card accent">
+            <p class="large-zh">不客氣</p>
+            <div class="reading-line"><span class="pinyin">bú kèqì</span><span class="zhuyin">ㄅㄨˊ ㄎㄜˋ ㄑㄧˋ</span></div>
+            <p><strong>You're welcome</strong></p>
+            <p class="burmese">ရပါတယ်၊ ကျေးဇူးတင်စရာ မလိုပါဘူး။</p>
+            <p class="small">回應「謝謝」；注音為本課編者轉寫。</p>
+          </article>
+        </div>
+        <div class="callout warning" style="margin-top:1rem">
+          <p><strong>「不」的變調：</strong>基本形式是第四聲 <b>bù</b>；在第四聲「客」(<b>kè</b>) 前，口語中通常變為第二聲 <b>bú</b>，所以讀作 <b>bú kèqì</b>。</p>
+          <p class="burmese no-margin">「不」ရဲ့ အခြေခံအသံက စတုတ္ထသံ <b>bù</b> ပါ။ နောက်က「客」(<b>kè</b>) လည်း စတုတ္ထသံဖြစ်လို့ စကားပြောရာမှာ「不」က ဒုတိယသံ <b>bú</b> ဖြစ်လေ့ရှိပါတယ်။</p>
+        </div>
+        <p class="citation">謝謝：ACCC-14，PDF 第 3–7 頁；不客氣與變調：ACCC-14，PDF 第 8–11 頁，尤其第 11 頁；ACCC-01，印刷頁 2、4。</p>
+      </section>
+
+      <section class="slide" id="slide-9" aria-labelledby="title-9" data-title="詢問姓名和自我介紹">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">詞彙 · 03</p>
+            <h2 id="title-9" tabindex="-1">詢問姓名和自我介紹</h2>
+          </div>
+          <span class="label original">問句的選用為本課教學編寫</span>
+        </div>
+        <article class="word-card">
+          <span class="label original">本課教學選擇：來源未直接示範此問句</span>
+          <p class="large-zh">你叫什麼名字？</p>
+          <div class="reading-line"><span class="pinyin">nǐ jiào shénme míngzi?</span><span class="zhuyin">ㄋㄧˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄧㄥˊ ˙ㄗ？</span></div>
+          <p><strong>What is your name?</strong></p>
+          <p class="burmese no-margin">သင့်နာမည် ဘယ်လိုခေါ်ပါသလဲ။</p>
+          <p class="small">本課問句選用及其拼音、注音均為編者教學補充。</p>
+          <p class="small burmese no-margin">ဒီမေးခွန်းနဲ့ 拼音၊ 注音 ကို သင်ခန်းစာရေးသူက သင်ကြားရေးအတွက် ဖြည့်ထားပါတယ်။</p>
+        </article>
+        <article class="word-card accent" style="margin-top:.8rem">
+          <span class="label source">句型有來源支持；空格與本課讀音標示為編輯補充</span>
+          <p class="large-zh">我姓……，叫……。</p>
+          <div class="reading-line"><span class="pinyin">wǒ xìng …, jiào …</span><span class="zhuyin">ㄨㄛˇ ㄒㄧㄥˋ……，ㄐㄧㄠˋ……。</span></div>
+          <p><strong>My surname is …, and my name is …</strong></p>
+          <p class="burmese no-margin">ကျွန်တော်／ကျွန်မရဲ့ မျိုးရိုးနာမည်က …၊ နာမည်က … ပါ။</p>
+        </article>
+        <p class="citation">ACCC-01，印刷頁 2：「我姓王，叫開文」；ACCC-21，PDF 第 5 頁的姓名例句及第 7 頁詢問同學姓名的活動是相關材料，不是本頁問句的直接示範。</p>
+      </section>
+
+      <section class="slide" id="slide-10" aria-labelledby="title-10" data-title="自我介紹對話">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">詞彙 · 04</p>
+            <h2 id="title-10" tabindex="-1">自我介紹對話</h2>
+          </div>
+          <span class="label original">對話原創；部分表達有來源支持</span>
+        </div>
+        <p class="small">人物、名字和對話順序由 Vocabulary 課程編寫；以下不是來源原文。</p>
+        <p class="small">注音與未由來源直接提供的拼音為課程編者轉寫。</p>
+        <p class="small burmese">လူအမည်နဲ့ စကားပြောအစီအစဉ်ကို Vocabulary သင်ခန်းစာမှာ ဖန်တီးထားတာပါ။ မူရင်းရင်းမြစ်က စာသားအပြည့်အစုံ မဟုတ်ပါ။ 注音 နဲ့ ရင်းမြစ်မှာ တိုက်ရိုက်မပါသော 拼音 ကို သင်ခန်းစာရေးသူက ဖြည့်ထားပါတယ်။</p>
+        <div class="speech">
+          <div class="speaker">A</div>
+          <p class="large-zh">你好！你叫什麼名字？</p>
+          <p class="pinyin">Nǐ hǎo! Nǐ jiào shénme míngzi?</p>
+          <p class="zhuyin">ㄋㄧˇ ㄏㄠˇ！ㄋㄧˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄧㄥˊ ˙ㄗ？</p>
+          <p class="burmese no-margin">မင်္ဂလာပါ။ သင့်နာမည် ဘယ်လိုခေါ်ပါသလဲ။</p>
+        </div>
+        <div class="speech right">
+          <div class="speaker">B</div>
+          <p class="large-zh">我姓林，叫美玲。</p>
+          <p class="pinyin">Wǒ xìng Lín, jiào Měilíng.</p>
+          <p class="zhuyin">ㄨㄛˇ ㄒㄧㄥˋ ㄌㄧㄣˊ，ㄐㄧㄠˋ ㄇㄟˇ ㄌㄧㄥˊ。</p>
+          <p class="burmese no-margin">ကျွန်မရဲ့ မျိုးရိုးနာမည်က 林၊ နာမည်က 美玲 ပါ။</p>
+        </div>
+        <div class="grid-2">
+          <article class="speech">
+            <div class="speaker">A</div><p class="large-zh">謝謝你。</p>
+            <p class="pinyin">Xièxie nǐ.</p><p class="zhuyin">ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄧˇ。</p>
+            <p class="burmese no-margin">ကျေးဇူးတင်ပါတယ်။</p>
+          </article>
+          <article class="speech right">
+            <div class="speaker">B</div><p class="large-zh">不客氣。再見！</p>
+            <p class="pinyin">Bú kèqì. Zàijiàn!</p><p class="zhuyin">ㄅㄨˊ ㄎㄜˋ ㄑㄧˋ。ㄗㄞˋ ㄐㄧㄢˋ！</p>
+            <p class="burmese no-margin">ရပါတယ်။ ပြန်တွေ့မယ်နော်။</p>
+          </article>
+        </div>
+        <div class="speech">
+          <div class="speaker">A</div><p class="large-zh">再見！</p>
+          <p class="pinyin">Zàijiàn!</p><p class="zhuyin">ㄗㄞˋ ㄐㄧㄢˋ！</p>
+          <p class="burmese no-margin">ပြန်တွေ့မယ်နော်။</p>
+        </div>
+        <p class="citation">對話取自 Vocabulary 課程的原創示範；表達來源位置見該課「核心詞語與句型」。</p>
+      </section>
+
+      <section class="slide" id="slide-11" aria-labelledby="title-11" data-title="選修延伸">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">詞彙 · 選修延伸</p>
+            <h2 id="title-11" tabindex="-1">很高興認識你</h2>
+          </div>
+          <span class="label optional">選修，不是已確認的 A1 必學項目</span>
+        </div>
+        <article class="word-card accent">
+          <p class="large-zh">很高興認識你。</p>
+          <div class="reading-line"><span class="pinyin">hěn gāoxìng rènshi nǐ</span><span class="zhuyin">ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ ㄖㄣˋ ˙ㄕ ㄋㄧˇ</span></div>
+          <p><strong>Nice to meet you.</strong></p>
+          <p class="burmese no-margin">တွေ့ရတာ ဝမ်းသာပါတယ်။</p>
+        </article>
+        <div class="callout warning" style="margin-top:1rem">
+          <p><strong>來源標示：</strong>本課選作延伸表達；所列來源沒有直接示範此句。</p>
+          <p>拼音與注音為本課編者轉寫。</p>
+          <p class="burmese no-margin">ဒီသင်ခန်းစာမှာ အပိုလေ့လာရန် ရွေးထားတာပါ။ ကိုးကားထားတဲ့ ရင်းမြစ်တွေမှာ ဒီဝါကျကို တိုက်ရိုက်မပြထားပါ။ 拼音 နဲ့ 注音 ကို သင်ခန်းစာရေးသူက ဖြည့်ထားပါတယ်။</p>
+        </div>
+        <p class="citation">來源狀態與讀音標示：Vocabulary 課程「核心詞語與句型」。</p>
+      </section>
+
+      <section class="slide" id="slide-12" aria-labelledby="title-12" data-title="練習">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">一起練習</p>
+            <h2 id="title-12" tabindex="-1">配對、填空、自我介紹</h2>
+          </div>
+          <span class="label source">取自 Vocabulary 課程</span>
+        </div>
+
+        <section class="card soft" aria-labelledby="matchTitle">
+          <h3 id="matchTitle">1. 配對：選擇表達的用途</h3>
+          <div class="grid-2">
+            <label>謝謝
+              <select class="match-answer" data-answer="4" aria-label="謝謝的用途">
+                <option value="">選擇用途</option><option value="1">道別</option><option value="2">詢問姓名</option><option value="3">回應感謝</option><option value="4">表達感謝</option>
+              </select>
+            </label>
+            <label>不客氣
+              <select class="match-answer" data-answer="3" aria-label="不客氣的用途">
+                <option value="">選擇用途</option><option value="1">道別</option><option value="2">詢問姓名</option><option value="3">回應感謝</option><option value="4">表達感謝</option>
+              </select>
+            </label>
+            <label>再見
+              <select class="match-answer" data-answer="1" aria-label="再見的用途">
+                <option value="">選擇用途</option><option value="1">道別</option><option value="2">詢問姓名</option><option value="3">回應感謝</option><option value="4">表達感謝</option>
+              </select>
+            </label>
+            <label>你叫什麼名字？
+              <select class="match-answer" data-answer="2" aria-label="你叫什麼名字的用途">
+                <option value="">選擇用途</option><option value="1">道別</option><option value="2">詢問姓名</option><option value="3">回應感謝</option><option value="4">表達感謝</option>
+              </select>
+            </label>
+          </div>
+          <p id="matchFeedback" class="feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="card soft" style="margin-top:.8rem" aria-labelledby="fillTitle">
+          <h3 id="fillTitle">2. 填空：從本課詞語選擇</h3>
+          <div class="fill-sentence">甲：
+            <select class="fill-answer" data-answer="你好" aria-label="第一個填空">
+              <option value="">選詞</option><option>你好</option><option>謝謝</option><option>不客氣</option><option>再見</option>
+            </select>
+            ！你叫什麼名字？
+          </div>
+          <p class="fill-sentence">乙：我姓陳，叫小安。</p>
+          <div class="fill-sentence">甲：
+            <select class="fill-answer" data-answer="謝謝" aria-label="第二個填空">
+              <option value="">選詞</option><option>你好</option><option>謝謝</option><option>不客氣</option><option>再見</option>
+            </select>
+            你告訴我。
+          </div>
+          <div class="fill-sentence">乙：
+            <select class="fill-answer" data-answer="不客氣" aria-label="第三個填空">
+              <option value="">選詞</option><option>你好</option><option>謝謝</option><option>不客氣</option><option>再見</option>
+            </select>
+            。
+            <select class="fill-answer" data-answer="再見" aria-label="第四個填空">
+              <option value="">選詞</option><option>你好</option><option>謝謝</option><option>不客氣</option><option>再見</option>
+            </select>
+            ！
+          </div>
+          <p id="fillFeedback" class="feedback" aria-live="polite"></p>
+        </section>
+
+        <div class="toolbar">
+          <button class="button-primary" id="checkPractice" type="button">檢查答案</button>
+          <button id="revealPractice" type="button">揭曉答案</button>
+          <button class="button-quiet" id="retryPractice" type="button">重試</button>
+        </div>
+        <details>
+          <summary>和同學練習自我介紹</summary>
+          <p>輪流問名字、介紹姓和名字，再道別。至少使用「你叫什麼名字？」、「我姓……，叫……」和「再見」。</p>
+          <p class="burmese no-margin">အလှည့်ကျ နာမည်မေး၊ မျိုးရိုးနာမည်နဲ့ နာမည်ကို မိတ်ဆက်ပြီး「再見」လို့ နှုတ်ဆက်ပါ။</p>
+        </details>
+      </section>
+
+      <section class="slide" id="slide-13" aria-labelledby="title-13" data-title="小測驗和回饋">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">小測驗</p>
+            <h2 id="title-13" tabindex="-1">選答案，看看回饋</h2>
+          </div>
+          <span class="label">可檢查、揭曉或重試</span>
+        </div>
+        <div class="grid-2 quiz-grid">
+          <fieldset class="quiz-question" data-answer="b" data-answer-label="ㄇㄚˇ" data-explanation="mǎ 對應 ㄇㄚˇ。">
+            <legend>1. <code>mǎ</code> 對應哪一個注音？</legend>
+            <label class="choice"><input type="radio" name="q1" value="a"> ㄇㄚ</label>
+            <label class="choice"><input type="radio" name="q1" value="b"> ㄇㄚˇ</label>
+            <label class="choice"><input type="radio" name="q1" value="c"> ˙ㄇㄚ</label>
+            <p class="feedback" data-feedback aria-live="polite"></p>
+          </fieldset>
+          <fieldset class="quiz-question" data-answer="c" data-answer-label="先降後升" data-explanation="第三聲是先降後升。">
+            <legend>2. 按本課說明，第三聲的聲音走向是什麼？</legend>
+            <label class="choice"><input type="radio" name="q2" value="a"> 高而平</label>
+            <label class="choice"><input type="radio" name="q2" value="b"> 上升</label>
+            <label class="choice"><input type="radio" name="q2" value="c"> 先降後升</label>
+            <label class="choice"><input type="radio" name="q2" value="d"> 下降</label>
+            <p class="feedback" data-feedback aria-live="polite"></p>
+          </fieldset>
+          <fieldset class="quiz-question" data-answer="a" data-answer-label="不客氣" data-explanation="本課列出「不客氣」作為「謝謝」的常見回應。">
+            <legend>3. 「謝謝」的常見回應是哪一個？</legend>
+            <label class="choice"><input type="radio" name="q3" value="a"> 不客氣</label>
+            <label class="choice"><input type="radio" name="q3" value="b"> 再見</label>
+            <p class="feedback" data-feedback aria-live="polite"></p>
+          </fieldset>
+          <fieldset class="quiz-question" data-answer="a" data-answer-label="nǐ hǎo" data-explanation="拼音寫作 nǐ hǎo；連讀時前一個第三聲可能聽起來接近 ní hǎo。">
+            <legend>4. 「你好」的拼音應寫成哪一個？</legend>
+            <label class="choice"><input type="radio" name="q4" value="a"> nǐ hǎo</label>
+            <label class="choice"><input type="radio" name="q4" value="b"> ní hǎo</label>
+            <p class="feedback" data-feedback aria-live="polite"></p>
+          </fieldset>
+        </div>
+        <div class="toolbar">
+          <button class="button-primary" id="checkQuiz" type="button">檢查答案</button>
+          <button id="revealQuiz" type="button">揭曉答案</button>
+          <button class="button-quiet" id="retryQuiz" type="button">重試</button>
+          <strong id="quizScore" aria-live="polite"></strong>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-14" aria-labelledby="title-14" data-title="自我檢查、來源與限制">
+        <div class="slide-head">
+          <div>
+            <p class="eyebrow">回顧</p>
+            <h2 id="title-14" tabindex="-1">自我檢查、來源與限制</h2>
+          </div>
+          <span class="label">完成後再自我評估</span>
+        </div>
+        <div class="self-grid">
+          <label class="card"><input type="checkbox"> 我能說出注音和拼音的不同。<br><span class="burmese">注音 နဲ့ 拼音 ဘာကွာသလဲ ပြောနိုင်တယ်။</span></label>
+          <label class="card"><input type="checkbox"> 我能認出四聲和輕聲的標記。<br><span class="burmese">အသံလေးသံနဲ့ ပေါ့သံရဲ့ အမှတ်အသားကို မှတ်မိတယ်။</span></label>
+          <label class="card"><input type="checkbox"> 我能慢慢讀本課例子，並注意聲調。<br><span class="burmese">ဥပမာတွေကို ဖြည်းဖြည်းဖတ်ပြီး အသံကို သတိထားနိုင်တယ်။</span></label>
+          <label class="card"><input type="checkbox"> 我能用「你好」問候、「再見」道別。<br><span class="burmese">「你好」နဲ့ နှုတ်ဆက်ပြီး「再見」နဲ့ ပြန်နှုတ်ဆက်နိုင်တယ်။</span></label>
+          <label class="card"><input type="checkbox"> 我能問姓名並用「我姓……，叫……」回答。<br><span class="burmese">နာမည်မေးပြီး「我姓……，叫……」နဲ့ ဖြေနိုင်တယ်။</span></label>
+          <label class="card"><input type="checkbox"> 我能在道謝後回應「不客氣」。<br><span class="burmese">ကျေးဇူးတင်စကားကို「不客氣」နဲ့ ပြန်ဖြေနိုင်တယ်။</span></label>
+          <label class="card"><input type="checkbox"> 我知道「很高興認識你」是本課選修延伸。<br><span class="burmese">「很高興認識你」က ဒီသင်ခန်းစာရဲ့ ရွေးချယ်လေ့လာနိုင်တဲ့ အပိုင်းဖြစ်ကြောင်း သိတယ်။</span></label>
+        </div>
+        <div class="callout warning" style="margin-top:1rem">
+          <p><strong>等級與證據限制：</strong>Wiki A1 是內部編排層級，不等於 CEFR、TOCFL 或 TBCL。NAER 第一級原型直接顯示「你好」及相關初學主題，不驗證完整詞語清單的 A1 歸屬；本投影片不宣稱完整詞表已通過證據門檻。</p>
+          <p class="burmese">Wiki A1 ဟာ အတွင်းပိုင်းအဆင့်သတ်မှတ်ချက်ဖြစ်ပြီး CEFR၊ TOCFL၊ TBCL နဲ့ မတူညီပါ။ NAER ပထမအဆင့်နမူနာမှာ「你好」နဲ့ ဆက်စပ်တဲ့ အစပြုအကြောင်းအရာတွေကို ပြထားပေမယ့် စကားလုံးစာရင်းတစ်ခုလုံးကို A1 လို့ အတည်မပြုပါ။</p>
+          <p class="no-margin"><strong>緬甸語限制：</strong>課程中的緬甸語說明尚未由合格的緬甸語教育者另行確認。注音也由課程編者轉寫；MOE 手冊只支持符號與調號規則。</p>
+        </div>
+        <details>
+          <summary>Pronunciation 課程來源與位置</summary>
+          <ul class="source-list">
+            <li>ACCC-16：教育部《國語注音符號手冊》，印刷頁 4–7；注音符號與調號參考。</li>
+            <li>ACCC-01：印刷頁 X–XII、XIX–XX；發音說明。例子見印刷頁 2、85。</li>
+            <li>ACCC-17：NTU 課程大綱 CH2–CH5。</li>
+            <li>ACCC-14：PDF 第 8–11 頁，尤其第 11 頁「不」的變調。</li>
+            <li>ACCC-18：華語101 第 1 章問候情境。</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Vocabulary 課程來源與位置</summary>
+          <ul class="source-list">
+            <li>ACCC-01：印刷頁 2、4、132；卷一目標見印刷頁 XVIII–XXII。</li>
+            <li>ACCC-14：PDF 第 3–7 頁及第 8–11 頁；「不」的變調見第 11 頁。</li>
+            <li>ACCC-16：注音符號與調號說明，印刷頁 4–7。</li>
+            <li>ACCC-18：華語101 第 1 章問候情境。</li>
+            <li>ACCC-20：《臺灣華語文能力基準》簡介；等級框架資訊。</li>
+            <li>ACCC-21：《教材模板 第一級〈問好〉：你是美國人嗎？》，PDF 第 1–3、5、7 頁。</li>
+          </ul>
+        </details>
+        <p class="citation">很高興認識你：選修延伸；Vocabulary 課程所列來源未直接示範此句。來源標示及限制均取自兩份 Wiki 課程。</p>
+      </section>
+    </main>
+
+    <footer class="bottom-nav" aria-label="投影片導覽">
+      <button id="previousButton" type="button" aria-label="上一張">← 上一張</button>
+      <span class="nav-hint">也可使用鍵盤 ← / →</span>
+      <button id="nextButton" class="button-primary" type="button" aria-label="下一張">下一張 →</button>
+    </footer>
+  </div>
+
+  <dialog id="overviewDialog" aria-labelledby="overviewTitle">
+    <div class="overview-head">
+      <h2 id="overviewTitle">投影片總覽</h2>
+      <button id="closeOverview" type="button" aria-label="關閉投影片總覽">關閉</button>
+    </div>
+    <nav id="overviewList" class="overview-list" aria-label="選擇投影片"></nav>
+  </dialog>
+
+  <div id="liveAnnouncement" class="sr-only" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const previousButton = document.getElementById("previousButton");
+      const nextButton = document.getElementById("nextButton");
+      const progressBar = document.getElementById("progressBar");
+      const slideCount = document.getElementById("slideCount");
+      const liveAnnouncement = document.getElementById("liveAnnouncement");
+      const overviewDialog = document.getElementById("overviewDialog");
+      const overviewButton = document.getElementById("overviewButton");
+      const overviewList = document.getElementById("overviewList");
+      let currentIndex = 0;
+
+      function showSlide(index, focusHeading = false) {
+        currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+        slides.forEach((slide, i) => {
+          slide.hidden = i !== currentIndex;
+          slide.setAttribute("aria-hidden", String(i !== currentIndex));
+        });
+        previousButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex === slides.length - 1;
+        progressBar.value = currentIndex + 1;
+        slideCount.textContent = `${String(currentIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+        liveAnnouncement.textContent = `第 ${currentIndex + 1} 張，共 ${slides.length} 張：${slides[currentIndex].dataset.title}`;
+        Array.from(overviewList.children).forEach((button, i) => {
+          if (i === currentIndex) button.setAttribute("aria-current", "true");
+          else button.removeAttribute("aria-current");
+        });
+        if (focusHeading) {
+          const heading = slides[currentIndex].querySelector("h1, h2");
+          if (heading) heading.focus();
+        }
+      }
+
+      slides.forEach((slide, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.innerHTML = `<span aria-hidden="true">${String(index + 1).padStart(2, "0")}</span><span>${slide.dataset.title}</span>`;
+        button.addEventListener("click", () => {
+          showSlide(index, true);
+          overviewDialog.close();
+          overviewButton.setAttribute("aria-expanded", "false");
+        });
+        overviewList.appendChild(button);
+      });
+
+      previousButton.addEventListener("click", () => showSlide(currentIndex - 1));
+      nextButton.addEventListener("click", () => showSlide(currentIndex + 1));
+      overviewButton.addEventListener("click", () => {
+        overviewDialog.showModal();
+        overviewButton.setAttribute("aria-expanded", "true");
+      });
+      document.getElementById("closeOverview").addEventListener("click", () => {
+        overviewDialog.close();
+        overviewButton.setAttribute("aria-expanded", "false");
+        overviewButton.focus();
+      });
+      overviewDialog.addEventListener("close", () => overviewButton.setAttribute("aria-expanded", "false"));
+
+      document.addEventListener("click", event => {
+        const target = event.target.closest("[data-goto]");
+        if (target) showSlide(Number(target.dataset.goto), true);
+      });
+
+      document.addEventListener("keydown", event => {
+        if (overviewDialog.open) return;
+        const target = event.target;
+        const isFormControl = target.matches("input, select, textarea, [contenteditable='true']");
+        if (isFormControl) return;
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          showSlide(currentIndex + 1);
+        } else if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          showSlide(currentIndex - 1);
+        }
+      });
+
+      function setFeedback(element, message, state = "") {
+        element.textContent = message;
+        element.classList.remove("good", "bad");
+        if (state) element.classList.add(state);
+      }
+
+      function checkSelectGroup(selector, feedbackId, completeMessage, incompleteMessage) {
+        const fields = Array.from(document.querySelectorAll(selector));
+        const feedback = document.getElementById(feedbackId);
+        const unanswered = fields.some(field => !field.value);
+        if (unanswered) {
+          setFeedback(feedback, incompleteMessage, "bad");
+          return;
+        }
+        const correct = fields.every(field => field.value === field.dataset.answer);
+        setFeedback(feedback, correct ? completeMessage : "有些答案不一致，請再試一次或揭曉答案。", correct ? "good" : "bad");
+      }
+
+      document.getElementById("checkPractice").addEventListener("click", () => {
+        checkSelectGroup(".match-answer", "matchFeedback", "配對正確。", "請完成所有配對。");
+        checkSelectGroup(".fill-answer", "fillFeedback", "填空正確。", "請完成所有空格。");
+      });
+
+      document.getElementById("revealPractice").addEventListener("click", () => {
+        document.querySelectorAll(".match-answer, .fill-answer").forEach(field => field.value = field.dataset.answer);
+        setFeedback(document.getElementById("matchFeedback"), "答案：謝謝—表達感謝；不客氣—回應感謝；再見—道別；你叫什麼名字？—詢問姓名。", "good");
+        setFeedback(document.getElementById("fillFeedback"), "答案：你好、謝謝、不客氣、再見。", "good");
+      });
+
+      document.getElementById("retryPractice").addEventListener("click", () => {
+        document.querySelectorAll(".match-answer, .fill-answer").forEach(field => field.value = "");
+        setFeedback(document.getElementById("matchFeedback"), "");
+        setFeedback(document.getElementById("fillFeedback"), "");
+      });
+
+      const quizQuestions = Array.from(document.querySelectorAll(".quiz-question"));
+      const quizScore = document.getElementById("quizScore");
+
+      function checkQuiz(reveal = false) {
+        let score = 0;
+        let unanswered = 0;
+        quizQuestions.forEach(question => {
+          const selected = question.querySelector("input:checked");
+          const feedback = question.querySelector("[data-feedback]");
+          if (reveal) {
+            setFeedback(feedback, `答案：${question.dataset.answerLabel}。${question.dataset.explanation}`, "good");
+            return;
+          }
+          if (!selected) {
+            unanswered += 1;
+            setFeedback(feedback, "請先選一個答案。", "bad");
+          } else if (selected.value === question.dataset.answer) {
+            score += 1;
+            setFeedback(feedback, `答對。${question.dataset.explanation}`, "good");
+          } else {
+            setFeedback(feedback, "答案不正確；可以重試或揭曉答案。", "bad");
+          }
+        });
+        if (reveal) {
+          quizScore.textContent = "已顯示答案";
+        } else {
+          quizScore.textContent = unanswered ? `尚有 ${unanswered} 題未選` : `${score} / ${quizQuestions.length}`;
+        }
+      }
+
+      document.getElementById("checkQuiz").addEventListener("click", () => checkQuiz(false));
+      document.getElementById("revealQuiz").addEventListener("click", () => checkQuiz(true));
+      document.getElementById("retryQuiz").addEventListener("click", () => {
+        quizQuestions.forEach(question => {
+          question.querySelectorAll("input").forEach(input => input.checked = false);
+          setFeedback(question.querySelector("[data-feedback]"), "");
+        });
+        quizScore.textContent = "";
+      });
+
+      showSlide(0);
+    })();
+  </script>
+</body>
+</html>
